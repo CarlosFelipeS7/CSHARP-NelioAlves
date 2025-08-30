@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C0108F40-9270-476E-821E-B453B8A98B67}</ProjectGuid>
+    <ProjectGuid>{B02190E4-4731-403C-956A-97EC82A8E89D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Construtor</RootNamespace>
-    <AssemblyName>Construtor</AssemblyName>
+    <RootNamespace>_7_This_para_referenciar_outro_Construtor</RootNamespace>
+    <AssemblyName>7_This para referenciar outro Construtor</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

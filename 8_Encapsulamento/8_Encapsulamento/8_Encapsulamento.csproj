@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{70A0576D-BC0C-4BE9-B1E0-3E663EC32DC5}</ProjectGuid>
+    <ProjectGuid>{1F3EFF03-86D6-4CD2-84A7-5FA7CE416984}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>This_para_referenciar_outro_Construtor</RootNamespace>
-    <AssemblyName>This para referenciar outro Construtor</AssemblyName>
+    <RootNamespace>_8_Encapsulamento</RootNamespace>
+    <AssemblyName>8_Encapsulamento</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
