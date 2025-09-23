@@ -11,6 +11,11 @@ namespace _25_Classe_Abstrata
     {
         static void Main(string[] args)
         {
+           //classe estática serve para agrupar membros (métodos, propriedades)
+           //como a classe nao pode ser instnaciada, serve so para armzenar
+           //como uma caixa de ferramentas de metodos 
+
+
             //classe abstrata
             //nao podem ser instanciadas
 
