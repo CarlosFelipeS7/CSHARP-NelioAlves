@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace _30_LocadoraVeiculos_Sem_Interface.Services
 {
-     class BrazilTaxService
-    {
+     class BrazilTaxService: ITaxService //definindo braziltaxservice como subtipo da interface
+    { //se o braziltaxservice faz parte da itaxservice, deve implementar o metodo tax
         public double Tax(double amount)
         {
             if(amount <= 100)

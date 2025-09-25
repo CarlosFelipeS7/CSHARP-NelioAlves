@@ -12,12 +12,13 @@ namespace _30_LocadoraVeiculos_Sem_Interface.Services
         public double PricePerHour { get; private set; } //adicionando restricao, so posso obter, nao posso modificar em outras classes
         public double PricePerDay { get; private set; }
 
-        private BrazilTaxService _brazilTaxService = new BrazilTaxService();
+        private ITaxService _taxService;
 
-        public RentalService(double pricePerHour, double pricePerDay)
+        public RentalService(double pricePerHour, double pricePerDay, ITaxService taxService)
         {
             PricePerHour = pricePerHour;
             PricePerDay = pricePerDay;
+            _taxService = taxService;
         }
 
         public void ProcessInvoice(CarRental carRental)
@@ -34,7 +35,7 @@ namespace _30_LocadoraVeiculos_Sem_Interface.Services
                 basicPayment = PricePerDay * Math.Ceiling(duration.TotalDays);
             }
 
-            double tax = _brazilTaxService.Tax(basicPayment);
+            double tax = _taxService.Tax(basicPayment);
 
             //instanciando
             carRental.Invoice = new Invoice(basicPayment, tax);
