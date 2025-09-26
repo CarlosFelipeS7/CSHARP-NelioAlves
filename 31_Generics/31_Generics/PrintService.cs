@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace _31_Generics
 {
-    internal class PrintService
+    internal class PrintService<T>
     {
 
-        private int[] _values = new int[10];//criando vetor  de 10 
+        private T[] _values = new T[10];//criando vetor  de 10 
         private int _count = 0;
 
-        public void addValue (int value){ //value o usuario informa
+        public void addValue (T value){ //value o usuario informa
            
             if(_count == 10)
             {
@@ -23,7 +23,7 @@ namespace _31_Generics
             _count++; //itera com count
         }
 
-        public int First()
+        public T First()
         {
             if (_count == 0)
             {

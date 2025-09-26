@@ -13,7 +13,8 @@ namespace _31_Generics
             //Generics permitem que classes, interfaces e metodos 
             //possam ser parametrizados por tipo.
 
-            PrintService printService = new PrintService();
+            //posso instanciar essa variavel como int ou string sem me importar com o metodo da classe  
+            PrintService<int> printService = new PrintService<int>();
 
             Console.WriteLine("How many values? ");
             int n = int.Parse(Console.ReadLine());
