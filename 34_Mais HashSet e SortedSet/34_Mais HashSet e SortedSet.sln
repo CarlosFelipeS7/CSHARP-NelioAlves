@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36429.23 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "34_Mais HashSet e SortedSet", "34_Mais HashSet e SortedSet\34_Mais HashSet e SortedSet.csproj", "{CA6B508C-CE28-4444-8358-1D2BFA2B5972}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA6B508C-CE28-4444-8358-1D2BFA2B5972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6B508C-CE28-4444-8358-1D2BFA2B5972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6B508C-CE28-4444-8358-1D2BFA2B5972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6B508C-CE28-4444-8358-1D2BFA2B5972}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5D089E3-EBE2-4484-91F2-924BA61B3C0C}
+	EndGlobalSection
+EndGlobal
