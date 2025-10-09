@@ -36,6 +36,17 @@ namespace _45_LINQ_com_Lambda
 
             //LINQ
             var r1 = listaProdutos.Where(x => x.Category.Tier == 1 && x.Price>900);
+           
+            
+            //Sintaxe de SQL no LINQ
+            var r3 =
+                from p in listaProdutos
+                where p.Category.Tier == 1
+                select p.Name;
+
+           Print("Sintaxe Alternativa", r1);
+            Print("Sintaxe Alternativa2",  r3);
+
             Print("TIER 1 AND PRICE > 900:", r1);
 
             var r2 = listaProdutos.Where(x=> x.Category.Name=="Tools").Select(x=> x.Name);
