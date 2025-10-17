@@ -4,7 +4,7 @@ using SalesWebMVC.Models;
 
 namespace SalesWebMVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller //Herda da classe Controller
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -20,6 +20,8 @@ namespace SalesWebMVC.Controllers
 
         public IActionResult Privacy()
         {
+            ViewData["Email"] = "ccfelipe08@gmail.com";
+
             return View();
         }
 
