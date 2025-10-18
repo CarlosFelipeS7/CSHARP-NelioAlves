@@ -1,7 +1,9 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
+using SalesWebMVC.Data;
 
 public class Startup
 {
@@ -12,6 +14,9 @@ public class Startup
     {
         services.AddControllersWithViews();
         services.AddRazorPages();
+
+        services.AddDbContext<SalesWebMVCContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SalesWebMVCContext")));
     }
 
     public void Configure(WebApplication app)
