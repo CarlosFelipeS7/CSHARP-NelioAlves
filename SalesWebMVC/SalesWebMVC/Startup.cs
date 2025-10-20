@@ -1,38 +1,43 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMVC.Data;
 
-public class Startup
+namespace SalesWebMVC
 {
-    public Startup(IConfiguration configuration) => Configuration = configuration;
-    public IConfiguration Configuration { get; }
-
-    public void ConfigureServices(IServiceCollection services)
+    public class Startup
     {
-        services.AddControllersWithViews();
-        services.AddRazorPages();
+        public Startup(IConfiguration configuration) => Configuration = configuration;
+        public IConfiguration Configuration { get; }
 
-        services.AddDbContext<SalesWebMVCContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("SalesWebMVCContext")));
-    }
-
-    public void Configure(WebApplication app)
-    {
-        if (!app.Environment.IsDevelopment())
+        public void ConfigureServices(IServiceCollection services)
         {
-            app.UseExceptionHandler("/Home/Error");
-            app.UseHsts();
+            services.AddControllersWithViews();
+            services.AddRazorPages();
+
+            services.AddDbContext<SalesWebMVCContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SalesWebMVCContext")));
+
+            // Registrar SeedingService como Scoped (usa DbContext que é scoped)
+            services.AddScoped<SeedingService>();
         }
 
-        app.UseHttpsRedirection();
-        app.UseStaticFiles();
-        app.UseRouting();
-        app.UseAuthorization();
+        public void Configure(WebApplication app)
+        {
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
 
-        app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
-        app.MapRazorPages();
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseRouting();
+            app.UseAuthorization();
+
+            app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapRazorPages();
+        }
     }
 }
