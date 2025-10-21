@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using SalesWebMVC.Models;
+using SalesWebMVC.Models.ViewModels;
 using SalesWebMVC.Services;
 
 namespace SalesWebMVC.Controllers
@@ -95,6 +96,48 @@ namespace SalesWebMVC.Controllers
             }
 
             return View(obj);
+        }
+    
+        public IActionResult Edit(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var obj = _sellerService.FindById(id.Value);
+            if(obj == null)
+            {
+                return NotFound();
+            }
+        
+            List<Departament> departaments = _departamentService.FindAll();
+            SellerFormViewModel viewModel = new SellerFormViewModel { Seller = obj, Departaments = departaments };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(SellerFormViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Departaments = _departamentService.FindAll();
+                return View(viewModel);
+            }
+
+            try
+            {
+                _sellerService.Update(viewModel.Seller);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (SalesWebMVC.Services.Exceptions.NotFoundException)
+            {
+                return NotFound();
+            }
+            catch (SalesWebMVC.Services.Exceptions.DbConcurrencyException)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
     }
 }
