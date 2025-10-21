@@ -14,15 +14,16 @@ namespace SalesWebMVC
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(); 
             services.AddRazorPages();
 
             services.AddDbContext<SalesWebMVCContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SalesWebMVCContext")));
 
-            // Registrar SeedingService como Scoped (usa DbContext que é scoped)
+            // Registrar serviços
             services.AddScoped<SeedingService>();
             services.AddScoped<SellerService>();
+            services.AddScoped<DepartamentService>(); // <-- registrar aqui
         }
 
         public void Configure(WebApplication app)

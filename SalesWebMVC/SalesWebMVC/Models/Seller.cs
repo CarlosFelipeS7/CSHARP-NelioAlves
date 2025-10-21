@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
 namespace SalesWebMVC.Models
 {
     public class Seller
@@ -10,7 +12,11 @@ namespace SalesWebMVC.Models
         public DateTime BirthDate { get; set; }
         public double BaseSalary { get; set; }
 
-        public Departament Departament { get; set; }
+        public int DepartamentId { get; set; }
+
+        // Tornar a navegação nullable e evitar validação do model binder
+        [ValidateNever]
+        public Departament? Departament { get; set; }
 
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
@@ -19,7 +25,6 @@ namespace SalesWebMVC.Models
 
         }
 
-        //colecoes nao inclui nos construtores
         public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Departament departament)
         {
             Id = id;
@@ -41,12 +46,7 @@ namespace SalesWebMVC.Models
 
         public double TotalSales(DateTime initial, DateTime final)
         {
-            //usando o linq (where) para filtrar as vendas, ai utilizo a expressao lambda que sera a condicao
             return Sales.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Amount);
-
         }
-
-
     }
-    
 }
