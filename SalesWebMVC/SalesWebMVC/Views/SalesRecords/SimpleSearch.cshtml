@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<SalesWebMVC.Models.SalesRecord>
 
 @{
     ViewData["Title"] = "Simple Search";
@@ -12,11 +12,11 @@
             <div class="form-group">
                 <div class="form-group">
                     <label for="minDate">Min Date</label>
-                    <input type="date" class="form-control" name="minDate" value=@ViewData["minDate"] />
+                    <input type="date" class="form-control" name="minDate" value="@(ViewData["minDate"])" />
                 </div>
                 <div class="form-group">
                     <label for="maxDate">Max Date</label>
-                    <input type="date" class="form-control" name="maxDate" value=@ViewData["maxDate"] />
+                    <input type="date" class="form-control" name="maxDate" value="@(ViewData["maxDate"])" />
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Filter</button>
@@ -41,7 +41,7 @@
                         @Html.DisplayNameFor(model => model.Seller)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Seller.Department)
+                        @Html.DisplayNameFor(model => model.Seller.Departament)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Amount)
@@ -65,7 +65,7 @@
                             @Html.DisplayFor(modelItem => item.Seller.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Seller.Department.Name)
+                            @Html.DisplayFor(modelItem => item.Seller.Departament.Name)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Amount)
@@ -78,4 +78,4 @@
             </tbody>
         </table>
     </div>
-</div> 
+</div>

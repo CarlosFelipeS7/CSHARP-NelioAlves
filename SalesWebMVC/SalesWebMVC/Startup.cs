@@ -26,6 +26,7 @@ namespace SalesWebMVC
             services.AddScoped<SeedingService>();
             services.AddScoped<SellerService>();
             services.AddScoped<DepartamentService>(); // <-- registrar aqui
+            services.AddScoped<SalesRecordService>();
         }
 
         public void Configure(WebApplication app)
