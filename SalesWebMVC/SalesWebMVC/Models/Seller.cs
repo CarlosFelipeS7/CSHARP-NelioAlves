@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
@@ -9,7 +10,14 @@ namespace SalesWebMVC.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+
+        [Display(Name = "Birth Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
+
+        [Display(Name = "Base Salary")]
+        [DisplayFormat(DataFormatString = "{0:F2}")]
         public double BaseSalary { get; set; }
 
         public int DepartamentId { get; set; }
